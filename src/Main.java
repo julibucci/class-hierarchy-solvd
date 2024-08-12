@@ -178,6 +178,35 @@ public class Main {
         roadBike.setHasSuspension(true);
         roadBike.setFrameMaterial("Aluminum");
 
+        // Creating instances of ElectricScooter
+        ElectricScooter cityScooter = new ElectricScooter("Xiaomi", "M365", 2024, 12, 25, 40, true, true);
+        ElectricScooter sportScooter = new ElectricScooter("Segway", "Ninebot MAX", 2023, 15, 30, 65, true, false);
+
+        // Using getters to display scooter details
+        System.out.println("City Scooter: " + cityScooter.getBrand() + " " + cityScooter.getModel() +
+                ", Year: " + cityScooter.getYear() +
+                ", Battery Life: " + cityScooter.getBatteryLife() + " hours" +
+                ", Max Speed: " + cityScooter.getMaxSpeed() + " km/h" +
+                ", Range: " + cityScooter.getRange() + " km" +
+                ", Has Lights: " + (cityScooter.isHasLights() ? "Yes" : "No") +
+                ", Has Bluetooth: " + (cityScooter.isHasBluetooth() ? "Yes" : "No"));
+
+        System.out.println("Sport Scooter: " + sportScooter.getBrand() + " " + sportScooter.getModel() +
+                ", Year: " + sportScooter.getYear() +
+                ", Battery Life: " + sportScooter.getBatteryLife() + " hours" +
+                ", Max Speed: " + sportScooter.getMaxSpeed() + " km/h" +
+                ", Range: " + sportScooter.getRange() + " km" +
+                ", Has Lights: " + (sportScooter.isHasLights() ? "Yes" : "No") +
+                ", Has Bluetooth: " + (sportScooter.isHasBluetooth() ? "Yes" : "No"));
+
+        // Starting the scooters
+        cityScooter.start();
+        sportScooter.start();
+
+        // Modifying attributes using setters
+        cityScooter.setMaxSpeed(27);
+        cityScooter.setRange(45);
+        sportScooter.setHasBluetooth(true);
 
     }
     }
