@@ -1,4 +1,5 @@
 import model.Car;
+import model.Helicopter;
 import model.Motorcycle;
 import model.Truck;
 
@@ -103,6 +104,23 @@ public class Main {
                 ", Has Trailer: " + pickupTruck.isHasTrailer() +
                 ", Fuel Type: " + pickupTruck.getFuelType() +
                 ", Cabin Size: " + pickupTruck.getCabinSize() + " seats");
+
+        // Creating instances of Helicopter
+        Helicopter privateHelicopter = new Helicopter("Bell", "429", 2023, 320, 6, 20000, "Jet Fuel", true);
+        Helicopter commercialHelicopter = new Helicopter("Airbus", "H145", 2022, 280, 10, 18000, "Jet Fuel", false);
+
+        // Starting the helicopters
+        privateHelicopter.start();  // Output: The helicopter is starting.
+        commercialHelicopter.start();  // Output: The helicopter is starting.
+
+        // Modifying attributes using setters
+        privateHelicopter.setMaxAltitude(21000);
+        privateHelicopter.setFuelType("Electric");
+        commercialHelicopter.setPassengerCapacity(12);
+        commercialHelicopter.setHasAutopilot(true);
+
+
+
     }
     }
 
