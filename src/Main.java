@@ -1,5 +1,6 @@
 import model.Car;
 import model.Motorcycle;
+import model.Truck;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -54,6 +55,54 @@ public class Main {
                 ", Engine Capacity: " + sportBike.getEngineCapacity() + "cc, Type: " + sportBike.getType() +
                 ", Windshield: " + sportBike.isHasWindshield() + ", Color: " + sportBike.getColor() +
                 ", ABS: " + sportBike.isHasABS() + ", Seat Height: ");
+
+
+        // Creating instances of Truck
+        Truck deliveryTruck = new Truck("Mercedes-Benz", "Actros", 2019, 18000, 4, true, "Diesel", 2);
+        Truck pickupTruck = new Truck("Ford", "F-150", 2022, 1000, 2, false, "Gasoline", 5);
+
+        // Using getters to display truck details
+        System.out.println("Delivery Truck: " + deliveryTruck.getBrand() + " " + deliveryTruck.getModel() +
+                ", Year: " + deliveryTruck.getYear() +
+                ", Load Capacity: " + deliveryTruck.getLoadCapacity() + " kg" +
+                ", Number of Axles: " + deliveryTruck.getNumberOfAxles() +
+                ", Has Trailer: " + deliveryTruck.isHasTrailer() +
+                ", Fuel Type: " + deliveryTruck.getFuelType() +
+                ", Cabin Size: " + deliveryTruck.getCabinSize() + " seats");
+
+        System.out.println("Pickup Truck: " + pickupTruck.getBrand() + " " + pickupTruck.getModel() +
+                ", Year: " + pickupTruck.getYear() +
+                ", Load Capacity: " + pickupTruck.getLoadCapacity() + " kg" +
+                ", Number of Axles: " + pickupTruck.getNumberOfAxles() +
+                ", Has Trailer: " + pickupTruck.isHasTrailer() +
+                ", Fuel Type: " + pickupTruck.getFuelType() +
+                ", Cabin Size: " + pickupTruck.getCabinSize() + " seats");
+
+        // Starting the trucks
+        deliveryTruck.start();
+        pickupTruck.start();
+
+        // Modifying attributes using setters
+        deliveryTruck.setLoadCapacity(20000);
+        deliveryTruck.setHasTrailer(false);
+        pickupTruck.setFuelType("Electric");
+
+        // Displaying updated details
+        System.out.println("Updated Delivery Truck: " + deliveryTruck.getBrand() + " " + deliveryTruck.getModel() +
+                ", Year: " + deliveryTruck.getYear() +
+                ", Load Capacity: " + deliveryTruck.getLoadCapacity() + " kg" +
+                ", Number of Axles: " + deliveryTruck.getNumberOfAxles() +
+                ", Has Trailer: " + deliveryTruck.isHasTrailer() +
+                ", Fuel Type: " + deliveryTruck.getFuelType() +
+                ", Cabin Size: " + deliveryTruck.getCabinSize() + " seats");
+
+        System.out.println("Updated Pickup Truck: " + pickupTruck.getBrand() + " " + pickupTruck.getModel() +
+                ", Year: " + pickupTruck.getYear() +
+                ", Load Capacity: " + pickupTruck.getLoadCapacity() + " kg" +
+                ", Number of Axles: " + pickupTruck.getNumberOfAxles() +
+                ", Has Trailer: " + pickupTruck.isHasTrailer() +
+                ", Fuel Type: " + pickupTruck.getFuelType() +
+                ", Cabin Size: " + pickupTruck.getCabinSize() + " seats");
     }
-}
+    }
 
