@@ -208,6 +208,37 @@ public class Main {
         cityScooter.setRange(45);
         sportScooter.setHasBluetooth(true);
 
+        // Creating instances of Boat
+        Boat speedBoat = new Boat("Yamaha", "212X", 2024, 80, 7, 10, "Gasoline", true);
+        Boat fishingBoat = new Boat("Grady-White", "Freedom 275", 2023, 55, 9, 8, "Diesel", true);
+
+        // Using getters to display boat details
+        System.out.println("Speed Boat: " + speedBoat.getBrand() + " " + speedBoat.getModel() +
+                ", Year: " + speedBoat.getYear() +
+                ", Max Speed: " + speedBoat.getMaxSpeed() + " km/h" +
+                ", Length: " + speedBoat.getLength() + " meters" +
+                ", Passenger Capacity: " + speedBoat.getPassengerCapacity() +
+                ", Fuel Type: " + speedBoat.getFuelType() +
+                ", Has Navigation System: " + (speedBoat.isHasNavigationSystem() ? "Yes" : "No"));
+
+        System.out.println("Fishing Boat: " + fishingBoat.getBrand() + " " + fishingBoat.getModel() +
+                ", Year: " + fishingBoat.getYear() +
+                ", Max Speed: " + fishingBoat.getMaxSpeed() + " km/h" +
+                ", Length: " + fishingBoat.getLength() + " meters" +
+                ", Passenger Capacity: " + fishingBoat.getPassengerCapacity() +
+                ", Fuel Type: " + fishingBoat.getFuelType() +
+                ", Has Navigation System: " + (fishingBoat.isHasNavigationSystem() ? "Yes" : "No"));
+
+        // Starting the boats
+        speedBoat.start();
+        fishingBoat.start();
+
+        // Modifying attributes using setters
+        speedBoat.setMaxSpeed(85);
+        fishingBoat.setPassengerCapacity(10);
+        fishingBoat.setHasNavigationSystem(false);
+
+
     }
     }
 
