@@ -116,7 +116,7 @@ public class Main {
         commercialHelicopter.setPassengerCapacity(12);
         commercialHelicopter.setHasAutopilot(true);
 
-        // Creating instances of Bus with the specified attributes
+        // Creating instances of Bus
         Bus cityBus = new Bus("Volvo", "B8R", 2021, 40, 2, true, 12, "Diesel");
         Bus schoolBus = new Bus("Blue Bird", "All American", 2022, 60, 3, true, 14, "CNG");
 
@@ -138,8 +138,8 @@ public class Main {
                 ", Fuel Type: " + schoolBus.getFuelType());
 
         // Starting the buses
-        cityBus.start();  // Output: The bus is starting.
-        schoolBus.start();  // Output: The bus is starting.
+        cityBus.start();
+        schoolBus.start();
 
         // Modifying attributes using setters
         cityBus.setLength(13);
@@ -147,6 +147,36 @@ public class Main {
         schoolBus.setSeatingCapacity(65);
         schoolBus.setHasAirConditioning(false);
 
+        // Creating instances of Bicycle
+        Bicycle mountainBike = new Bicycle("Trek", "Marlin 7", 2023, true, 18, "Mountain", true, "Aluminum");
+        Bicycle roadBike = new Bicycle("Specialized", "Allez", 2022, true, 22, "Road", false, "Carbon Fiber");
+
+        // Using getters to display bicycle details
+        System.out.println("Mountain Bike: " + mountainBike.getBrand() + " " + mountainBike.getModel() +
+                ", Year: " + mountainBike.getYear() +
+                ", Has Gear: " + (mountainBike.hasGear() ? "Yes" : "No") +
+                ", Number of Gears: " + mountainBike.getNumberOfGears() +
+                ", Type: " + mountainBike.getType() +
+                ", Has Suspension: " + (mountainBike.isHasSuspension() ? "Yes" : "No") +
+                ", Frame Material: " + mountainBike.getFrameMaterial());
+
+        System.out.println("Road Bike: " + roadBike.getBrand() + " " + roadBike.getModel() +
+                ", Year: " + roadBike.getYear() +
+                ", Has Gear: " + (roadBike.hasGear() ? "Yes" : "No") +
+                ", Number of Gears: " + roadBike.getNumberOfGears() +
+                ", Type: " + roadBike.getType() +
+                ", Has Suspension: " + (roadBike.isHasSuspension() ? "Yes" : "No") +
+                ", Frame Material: " + roadBike.getFrameMaterial());
+
+        // Starting the bicycles
+        mountainBike.start();
+        roadBike.start();
+
+        // Modifying attributes using setters
+        mountainBike.setNumberOfGears(21);
+        mountainBike.setType("Mountain");
+        roadBike.setHasSuspension(true);
+        roadBike.setFrameMaterial("Aluminum");
 
 
     }
