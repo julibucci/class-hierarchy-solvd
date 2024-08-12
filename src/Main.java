@@ -238,7 +238,54 @@ public class Main {
         fishingBoat.setPassengerCapacity(10);
         fishingBoat.setHasNavigationSystem(false);
 
+        // Creating instances of Airplane
+        Airplane commercialJet = new Airplane("Boeing", "747", 2023, 35000, 900, 350, "Jet Fuel", true);
+        Airplane privateJet = new Airplane("Gulfstream", "G650", 2024, 50000, 950, 14, "Jet Fuel", true);
+
+        // Using getters to display airplane details
+        System.out.println("Commercial Jet: " + commercialJet.getBrand() + " " + commercialJet.getModel() +
+                ", Year: " + commercialJet.getYear() +
+                ", Altitude: " + commercialJet.getAltitude() + " feet" +
+                ", Max Speed: " + commercialJet.getMaxSpeed() + " km/h" +
+                ", Passenger Capacity: " + commercialJet.getPassengerCapacity() +
+                ", Fuel Type: " + commercialJet.getFuelType() +
+                ", Has WiFi: " + (commercialJet.isHasWiFi() ? "Yes" : "No"));
+
+        System.out.println("Private Jet: " + privateJet.getBrand() + " " + privateJet.getModel() +
+                ", Year: " + privateJet.getYear() +
+                ", Altitude: " + privateJet.getAltitude() + " feet" +
+                ", Max Speed: " + privateJet.getMaxSpeed() + " km/h" +
+                ", Passenger Capacity: " + privateJet.getPassengerCapacity() +
+                ", Fuel Type: " + privateJet.getFuelType() +
+                ", Has WiFi: " + (privateJet.isHasWiFi() ? "Yes" : "No"));
+
+        // Starting the airplanes
+        commercialJet.start();
+        privateJet.start();
+
+        // Modifying attributes using setters
+        commercialJet.setAltitude(36000);
+        privateJet.setPassengerCapacity(16);
+        privateJet.setHasWiFi(false);
+
+        // Displaying updated details
+        System.out.println("Updated Commercial Jet: " + commercialJet.getBrand() + " " + commercialJet.getModel() +
+                ", Year: " + commercialJet.getYear() +
+                ", Altitude: " + commercialJet.getAltitude() + " feet" +
+                ", Max Speed: " + commercialJet.getMaxSpeed() + " km/h" +
+                ", Passenger Capacity: " + commercialJet.getPassengerCapacity() +
+                ", Fuel Type: " + commercialJet.getFuelType() +
+                ", Has WiFi: " + (commercialJet.isHasWiFi() ? "Yes" : "No"));
+
+        System.out.println("Updated Private Jet: " + privateJet.getBrand() + " " + privateJet.getModel() +
+                ", Year: " + privateJet.getYear() +
+                ", Altitude: " + privateJet.getAltitude() + " feet" +
+                ", Max Speed: " + privateJet.getMaxSpeed() + " km/h" +
+                ", Passenger Capacity: " + privateJet.getPassengerCapacity() +
+                ", Fuel Type: " + privateJet.getFuelType() +
+                ", Has WiFi: " + (privateJet.isHasWiFi() ? "Yes" : "No"));
+    }
 
     }
-    }
+
 
