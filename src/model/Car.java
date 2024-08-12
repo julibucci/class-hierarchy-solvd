@@ -4,11 +4,19 @@ public class Car extends Vehicle
 {
     // Attributes
     private int doors;
+    private String color;
+    private String fuelType;
+    private boolean hasSunroof;
+    private double engineCapacity;
 
     // Constructor
-    public Car(String brand, String model, int year, int doors) {
+    public Car(String brand, String model, int year, int doors, String color, String fuelType, boolean hasSunroof, double engineCapacity) {
         super(brand, model, year);
         this.doors = doors;
+        this.color = color;
+        this.fuelType = fuelType;
+        this.hasSunroof = hasSunroof;
+        this.engineCapacity = engineCapacity;
     }
 
     // Getter y setter
@@ -20,13 +28,44 @@ public class Car extends Vehicle
         this.doors = doors;
     }
 
-    // Start method override
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public boolean isHasSunroof() {
+        return hasSunroof;
+    }
+
+    public void setHasSunroof(boolean hasSunroof) {
+        this.hasSunroof = hasSunroof;
+    }
+
+    public double getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public void setEngineCapacity(double engineCapacity) {
+        this.engineCapacity = engineCapacity;
+    }
+
     @Override
     public void start() {
         System.out.println("The car is starting.");
     }
 
-    // Accelerate Method-overloading
+    // Method overloading
     public void accelerate() {
         System.out.println("The car is accelerating.");
     }

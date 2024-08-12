@@ -5,18 +5,30 @@ import model.Car;
 public class Main {
     public static void main(String[] args) {
         //Creating an instance of Car
-        Car car = new Car("Toyota", "Corolla", 2020, 4);
+        Car myCar = new Car("Toyota", "Corolla", 2020, 4, "Red", "Gasoline", true, 1.8);
+        Car sportsCar = new Car("Ferrari", "488", 2021, 2, "Yellow", "Gasoline", false, 3.9);
 
-        //Starting the car
-        car.start(); // calls the method
+        // Starting the cars, calls the method
+        myCar.start();
+        sportsCar.start();
 
-        car.accelerate();  // The car is accelerating.
-        car.accelerate(110);  // The car is accelerating to 120 km/h.
+        // Accelerating the cars
+        myCar.accelerate();
+        sportsCar.accelerate(200);
 
         // Using setters to modify car details
-        car.setDoors(5);
-        System.out.println("Updated My Car Doors: " + car.getDoors());
+        myCar.setColor("Blue");
+        myCar.setDoors(5);
 
-        System.out.println("Car model: " + car.getModel());
+        // Using getters to display car details
+        System.out.println("My Car: " + myCar.getBrand() + " " + myCar.getModel() + ", Year: " + myCar.getYear() +
+                ", Doors: " + myCar.getDoors() + ", Color: " + myCar.getColor() +
+                ", Fuel Type: " + myCar.getFuelType() + ", Sunroof: " + myCar.isHasSunroof() +
+                ", Engine Capacity: " + myCar.getEngineCapacity() + "L");
+
+        System.out.println("Sports Car: " + sportsCar.getBrand() + " " + sportsCar.getModel() + ", Year: " + sportsCar.getYear() +
+                ", Doors: " + sportsCar.getDoors() + ", Color: " + sportsCar.getColor() +
+                ", Fuel Type: " + sportsCar.getFuelType() + ", Sunroof: " + sportsCar.isHasSunroof() +
+                ", Engine Capacity: " + sportsCar.getEngineCapacity() + "L");
     }
 }
