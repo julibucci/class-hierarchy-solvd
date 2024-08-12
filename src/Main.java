@@ -1,7 +1,4 @@
-import model.Car;
-import model.Helicopter;
-import model.Motorcycle;
-import model.Truck;
+import model.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -118,6 +115,37 @@ public class Main {
         privateHelicopter.setFuelType("Electric");
         commercialHelicopter.setPassengerCapacity(12);
         commercialHelicopter.setHasAutopilot(true);
+
+        // Creating instances of Bus with the specified attributes
+        Bus cityBus = new Bus("Volvo", "B8R", 2021, 40, 2, true, 12, "Diesel");
+        Bus schoolBus = new Bus("Blue Bird", "All American", 2022, 60, 3, true, 14, "CNG");
+
+        // Using getters to display bus details
+        System.out.println("City Bus: " + cityBus.getBrand() + " " + cityBus.getModel() +
+                ", Year: " + cityBus.getYear() +
+                ", Seating Capacity: " + cityBus.getSeatingCapacity() +
+                ", Number of Doors: " + cityBus.getNumberOfDoors() +
+                ", Air Conditioning: " + (cityBus.isHasAirConditioning() ? "Yes" : "No") +
+                ", Length: " + cityBus.getLength() + " meters" +
+                ", Fuel Type: " + cityBus.getFuelType());
+
+        System.out.println("School Bus: " + schoolBus.getBrand() + " " + schoolBus.getModel() +
+                ", Year: " + schoolBus.getYear() +
+                ", Seating Capacity: " + schoolBus.getSeatingCapacity() +
+                ", Number of Doors: " + schoolBus.getNumberOfDoors() +
+                ", Air Conditioning: " + (schoolBus.isHasAirConditioning() ? "Yes" : "No") +
+                ", Length: " + schoolBus.getLength() + " meters" +
+                ", Fuel Type: " + schoolBus.getFuelType());
+
+        // Starting the buses
+        cityBus.start();  // Output: The bus is starting.
+        schoolBus.start();  // Output: The bus is starting.
+
+        // Modifying attributes using setters
+        cityBus.setLength(13);
+        cityBus.setFuelType("Electric");
+        schoolBus.setSeatingCapacity(65);
+        schoolBus.setHasAirConditioning(false);
 
 
 

@@ -1,6 +1,6 @@
 package model;
 
-public class Helicopter
+public class Helicopter extends Vehicle
 {
     private int rotorSpeed;
     private int passengerCapacity;
