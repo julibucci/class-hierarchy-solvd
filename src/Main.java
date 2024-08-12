@@ -1,15 +1,22 @@
+import model.Car;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //Creating an instance of Car
+        Car car = new Car("Toyota", "Corolla", 2020, 4);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        //Starting the car
+        car.start(); // calls the method
+
+        car.accelerate();  // The car is accelerating.
+        car.accelerate(110);  // The car is accelerating to 120 km/h.
+
+        // Using setters to modify car details
+        car.setDoors(5);
+        System.out.println("Updated My Car Doors: " + car.getDoors());
+
+        System.out.println("Car model: " + car.getModel());
     }
 }
