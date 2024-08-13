@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Helicopter extends Vehicle
 {
     private int rotorSpeed;
@@ -60,5 +62,31 @@ public class Helicopter extends Vehicle
     @Override
     public void start() {
         System.out.println("The helicopter is starting.");
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return super.toString() + " Helicopter [rotorSpeed=" + rotorSpeed + ", passengerCapacity=" + passengerCapacity +
+                ", maxAltitude=" + maxAltitude + ", fuelType=" + fuelType + ", hasAutopilot=" + hasAutopilot + "]";
+    }
+
+    // hashCode method
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), rotorSpeed, passengerCapacity, maxAltitude, fuelType, hasAutopilot);
+    }
+
+    // equals method
+    @Override
+    public boolean equals(Object obj) {
+        if (!super.equals(obj)) return false;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Helicopter helicopter = (Helicopter) obj;
+        return rotorSpeed == helicopter.rotorSpeed &&
+                passengerCapacity == helicopter.passengerCapacity &&
+                maxAltitude == helicopter.maxAltitude &&
+                hasAutopilot == helicopter.hasAutopilot &&
+                Objects.equals(fuelType, helicopter.fuelType);
     }
 }

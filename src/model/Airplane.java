@@ -61,4 +61,20 @@ public class Airplane extends Vehicle
     public void start() {
         System.out.println("The airplane is taking off.");
     }
+
+    // toString method
+    @Override
+    public String toString() {
+        return super.toString() + "Airplane{" +
+                "altitude=" + altitude +
+                ", maxSpeed=" + maxSpeed +
+                ", passengerCapacity=" + passengerCapacity +
+                ", fuelType='" + fuelType + '\'' +
+                ", hasWiFi=" + hasWiFi +
+                '}';
+    }
+
+
+
+
 }

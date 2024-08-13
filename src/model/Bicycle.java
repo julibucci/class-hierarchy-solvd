@@ -61,4 +61,20 @@ public class Bicycle extends Vehicle
     public void start() {
         System.out.println("The bicycle is ready to ride.");
     }
+
+    // toString method
+    @Override
+    public String toString() {
+        return super.toString() + "Bicycle{" +
+                "hasGear=" + hasGear +
+                ", numberOfGears=" + numberOfGears +
+                ", type='" + type + '\'' +
+                ", hasSuspension=" + hasSuspension +
+                ", frameMaterial='" + frameMaterial + '\'' +
+                '}';
+    }
+
+
+
+
 }

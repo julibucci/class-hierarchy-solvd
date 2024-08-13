@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Motorcycle extends Vehicle
 {
     // Attributes
@@ -64,4 +66,36 @@ public class Motorcycle extends Vehicle
         System.out.println("The motorcycle is starting.");
     }
 
+    // method toString
+    @Override
+    public String toString() {
+        return super.toString() + " Motorcycle [engineCapacity=" + engineCapacity + ", type=" + type +
+                ", hasWindshield=" + hasWindshield + ", color=" + color + ", hasABS=" + hasABS + "]";
+    }
+
+    // hashCode method
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), engineCapacity, type, color, hasABS);
+    }
+
+    // equals method
+    @Override
+    public boolean equals(Object obj) {
+        // Primero, verifica si el objeto es el mismo que el objeto comparado
+        if (this == obj) return true;
+
+        // Verifica si el objeto es null o si las clases no coinciden
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        // Realiza el casting seguro a la clase Motorcycle
+        Motorcycle motorcycle = (Motorcycle) obj;
+
+        // Compara los atributos específicos de Motorcycle
+        return engineCapacity == motorcycle.engineCapacity &&
+                hasWindshield == motorcycle.hasWindshield &&
+                hasABS == motorcycle.hasABS &&
+                Objects.equals(type, motorcycle.type) &&
+                Objects.equals(color, motorcycle.color);
+    }
 }

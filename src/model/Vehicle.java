@@ -1,11 +1,13 @@
 package model;
 
-public class Vehicle
+import java.util.Objects;
+
+public abstract class Vehicle
 {
     // Attributes
-    private String brand;
-    private String model;
-    private int year;
+    protected String brand;
+    protected String model;
+    protected int year;
 
     // Constructor
     public Vehicle(String brand, String model, int year) {
@@ -39,9 +41,43 @@ public class Vehicle
         this.year = year;
     }
 
-    // Start method
-    public void start() {
-        System.out.println("The vehicle is starting.");
+    // Abstract method
+    protected abstract void start();
+
+    // Override methods from Object class
+    // toString method
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                '}';
     }
+
+    // Hashcode method
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, year);
+    }
+
+    // Equals method
+    @Override
+    public boolean equals(Object obj) {
+        // Verifica si el objeto actual es el mismo que el objeto comparado
+        return (this == obj) ||
+                // Verifica si el objeto comparado no es null y es de la misma clase
+                (obj != null &&
+                        getClass() == obj.getClass() &&
+                        // Compara el año del objeto actual con el del objeto comparado
+                        year == ((Vehicle) obj).year &&
+                        // Compara la marca del objeto actual con la del objeto comparado
+                        Objects.equals(brand, ((Vehicle) obj).brand) &&
+                        // Compara el modelo del objeto actual con el del objeto comparado
+                        Objects.equals(model, ((Vehicle) obj).model));
+    }
+
+
+
 
 }

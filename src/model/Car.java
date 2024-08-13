@@ -3,8 +3,8 @@ package model;
 public class Car extends Vehicle
 {
     // Attributes
-    private int doors;
-    private String color;
+    protected int doors;
+    protected String color;
     private String fuelType;
     private boolean hasSunroof;
     private double engineCapacity;
@@ -73,4 +73,18 @@ public class Car extends Vehicle
     public void accelerate(int speed) {
         System.out.println("The car is accelerating to " + speed + " km/h.");
     }
+
+    // Method toString
+    @Override
+    public String toString() {
+        return super.toString() + "Car{" +
+                "doors=" + doors +
+                ", color='" + color + '\'' +
+                ", fuelType='" + fuelType + '\'' +
+                ", hasSunroof=" + hasSunroof +
+                ", engineCapacity=" + engineCapacity +
+                '}';
+    }
+
+
 }
