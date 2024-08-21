@@ -8,13 +8,21 @@ public abstract class Vehicle
     protected String brand;
     protected String model;
     protected int year;
-    public static final int MAX_YEAR = 2024;
+    public static final int MAX_YEAR = 2024; // final variable
+    private static int vehicleCount = 0; // static variable
+
+    // Static block
+    static {
+        System.out.println("Static block of Vehicle class executed.");
+        vehicleCount = 0; // Initialize static variable
+    }
 
     // Constructor
     public Vehicle(String brand, String model, int year) {
         this.brand = brand;
         this.model = model;
         this.year = year;
+        vehicleCount++; // Increment vehicle count for each new instance
     }
 
     // Getter y setter
@@ -86,6 +94,9 @@ public abstract class Vehicle
         System.out.println("Model: " + model);
         System.out.println("Year: " + year);
     }
-
+    // Static method
+    public static int getVehicleCount() {
+        return vehicleCount;
+    }
 
 }
