@@ -7,8 +7,8 @@ public class Truck extends Vehicle implements Transportable {
     private int loadCapacity;
     private int numberOfAxles;
     private boolean hasTrailer;
-    private String fuelType; // Diesel, Electric
-    private int cabinSize; // number of seats
+    private String fuelType;
+    private int cabinSize;
 
     // Constructor
     public Truck(String brand, String model, int year, int loadCapacity, int numberOfAxles, boolean hasTrailer, String fuelType, int cabinSize) {

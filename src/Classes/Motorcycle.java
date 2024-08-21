@@ -6,7 +6,7 @@ public class Motorcycle extends Vehicle
 {
     // Attributes
     private int engineCapacity;
-    private String type; //Cruiser, Sport, Touring
+    private String type;
     private boolean hasWindshield;
     private String color;
     private boolean hasABS;
@@ -88,10 +88,10 @@ public class Motorcycle extends Vehicle
         // Verifica si el objeto es null o si las clases no coinciden
         if (obj == null || getClass() != obj.getClass()) return false;
 
-        // Realiza el casting seguro a la clase Motorcycle
+        // Realiza el casteo seguro a la clase Motorcycle
         Motorcycle motorcycle = (Motorcycle) obj;
 
-        // Compara los atributos específicos de Motorcycle
+        // Compara los atributos especificos de Motorcycle
         return engineCapacity == motorcycle.engineCapacity &&
                 hasWindshield == motorcycle.hasWindshield &&
                 hasABS == motorcycle.hasABS &&

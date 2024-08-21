@@ -2,10 +2,10 @@ package Classes;
 
 public class Boat extends Vehicle
 {
-    private int maxSpeed; // in km/h
-    private int length; // in meters
+    private int maxSpeed;
+    private int length;
     private int passengerCapacity;
-    private String fuelType; // e.g., Diesel, Gasoline
+    private String fuelType;
     private boolean hasNavigationSystem;
 
     public Boat(String brand, String model, int year, int maxSpeed, int length, int passengerCapacity, String fuelType, boolean hasNavigationSystem) {

@@ -7,7 +7,7 @@ public class Helicopter extends Vehicle
     private int rotorSpeed;
     private int passengerCapacity;
     private int maxAltitude;
-    private String fuelType; //Jet Fuel, Electric
+    private String fuelType;
     private boolean hasAutopilot;
 
     public Helicopter(String brand, String model, int year, int rotorSpeed, int passengerCapacity, int maxAltitude, String fuelType, boolean hasAutopilot) {

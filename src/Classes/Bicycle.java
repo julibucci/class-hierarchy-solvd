@@ -6,9 +6,9 @@ public class Bicycle extends Vehicle implements Pedalable
 {
     private boolean hasGear;
     private int numberOfGears;
-    private String type; // Road, Mountain
+    private String type;
     private boolean hasSuspension;
-    private String frameMaterial; // Steel, Aluminum, Carbon Fiber
+    private String frameMaterial;
 
     public Bicycle(String brand, String model, int year, boolean hasGear, int numberOfGears, String type, boolean hasSuspension, String frameMaterial) {
         super(brand, model, year);

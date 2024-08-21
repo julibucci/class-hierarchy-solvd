@@ -53,7 +53,6 @@ public abstract class Vehicle
     // Abstract method
     protected abstract void start();
 
-    // Override methods from Object class
     // toString method
     @Override
     public String toString() {
@@ -73,9 +72,7 @@ public abstract class Vehicle
     // Equals method
     @Override
     public boolean equals(Object obj) {
-        // Verifica si el objeto actual es el mismo que el objeto comparado
         return (this == obj) ||
-                // Verifica si el objeto comparado no es null y es de la misma clase
                 (obj != null &&
                         getClass() == obj.getClass() &&
                         // Compara el año del objeto actual con el del objeto comparado
