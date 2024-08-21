@@ -8,6 +8,7 @@ public abstract class Vehicle
     protected String brand;
     protected String model;
     protected int year;
+    public static final int MAX_YEAR = 2024;
 
     // Constructor
     public Vehicle(String brand, String model, int year) {
@@ -77,7 +78,14 @@ public abstract class Vehicle
                         Objects.equals(model, ((Vehicle) obj).model));
     }
 
-
+    // Final method
+    public final void printVehicleDetails()
+    {
+        System.out.println("Vehicle Details:");
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+    }
 
 
 }

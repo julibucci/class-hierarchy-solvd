@@ -2,7 +2,7 @@ package model;
 
 import Interfaces.Electric;
 
-public class ElectricScooter extends Vehicle implements Electric
+public final class ElectricScooter extends Vehicle implements Electric
 {
     private int batteryLife;
     private int maxSpeed;
