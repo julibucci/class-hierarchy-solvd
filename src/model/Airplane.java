@@ -1,6 +1,8 @@
 package model;
 
-public class Airplane extends Vehicle
+import Interfaces.Flyable;
+
+public class Airplane extends Vehicle implements Flyable
 {
     private int altitude;
     private int maxSpeed;
@@ -74,7 +76,11 @@ public class Airplane extends Vehicle
                 '}';
     }
 
-
-
+    // Interface implementation
+    @Override
+    public void takeOff() {
+        System.out.println("The airplane is taking off.");
+        this.altitude = 10000;
+    }
 
 }

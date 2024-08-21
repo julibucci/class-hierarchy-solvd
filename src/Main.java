@@ -5,8 +5,8 @@ import model.*;
 public class Main {
     public static void main(String[] args) {
         //Creating instances of Car
-        Car myCar = new Car("Toyota", "Corolla", 2020, 4, "Red", "Gasoline", true, 1.8);
-        Car sportsCar = new Car("Ferrari", "488", 2021, 2, "Yellow", "Gasoline", false, 3.9);
+        Car myCar = new Car("Toyota", "Corolla", 2020, 4, "Red", "Gasoline", true, true);
+        Car sportsCar = new Car("Ferrari", "488", 2021, 2, "Yellow", "Gasoline", false, false);
 
         // Starting the cars, calls the method
         myCar.start();
@@ -24,12 +24,12 @@ public class Main {
         System.out.println("My Car: " + myCar.getBrand() + " " + myCar.getModel() + ", Year: " + myCar.getYear() +
                 ", Doors: " + myCar.getDoors() + ", Color: " + myCar.getColor() +
                 ", Fuel Type: " + myCar.getFuelType() + ", Sunroof: " + myCar.isHasSunroof() +
-                ", Engine Capacity: " + myCar.getEngineCapacity() + "L");
+                ", RoofOpen: " + myCar.isRoofOpen());
 
         System.out.println("Sports Car: " + sportsCar.getBrand() + " " + sportsCar.getModel() + ", Year: " + sportsCar.getYear() +
                 ", Doors: " + sportsCar.getDoors() + ", Color: " + sportsCar.getColor() +
                 ", Fuel Type: " + sportsCar.getFuelType() + ", Sunroof: " + sportsCar.isHasSunroof() +
-                ", Engine Capacity: " + sportsCar.getEngineCapacity() + "L");
+                ", RoofOpem: " + sportsCar.isRoofOpen());
 
         // Creating instances of Motorcycle
         Motorcycle bike1 = new Motorcycle("Harley-Davidson", "Iron 883", 2020, 883, "Cruiser", true, "Black", true);

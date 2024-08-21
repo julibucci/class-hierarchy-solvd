@@ -1,6 +1,8 @@
 package model;
 
-public class Bicycle extends Vehicle
+import Interfaces.Pedalable;
+
+public class Bicycle extends Vehicle implements Pedalable
 {
     private boolean hasGear;
     private int numberOfGears;
@@ -74,7 +76,16 @@ public class Bicycle extends Vehicle
                 '}';
     }
 
+    // Interface implementation
+    @Override
+    public void pedal() {
+        System.out.println("Pedaling the bicycle.");
+    }
 
+    @Override
+    public void brake() {
+        System.out.println("Applying the bicycle brake.");
+    }
 
 
 }

@@ -1,10 +1,12 @@
 package model;
 
-public class ElectricScooter extends Vehicle
+import Interfaces.Electric;
+
+public class ElectricScooter extends Vehicle implements Electric
 {
-    private int batteryLife; // in hours
-    private int maxSpeed; // in km/h
-    private int range; // in kilometers
+    private int batteryLife;
+    private int maxSpeed;
+    private int range;
     private boolean hasLights;
     private boolean hasBluetooth;
 
@@ -60,5 +62,10 @@ public class ElectricScooter extends Vehicle
     @Override
     public void start() {
         System.out.println("The electric scooter is starting.");
+    }
+
+    // Interface implementation
+    public void chargeBattery() {
+        System.out.println("Charging the battery.");
     }
 }

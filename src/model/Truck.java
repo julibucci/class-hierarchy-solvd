@@ -1,6 +1,8 @@
 package model;
 
-public class Truck extends Vehicle {
+import Interfaces.Transportable;
+
+public class Truck extends Vehicle implements Transportable {
     // Attributes
     private int loadCapacity;
     private int numberOfAxles;
@@ -62,5 +64,16 @@ public class Truck extends Vehicle {
     @Override
     public void start() {
         System.out.println("The truck is starting.");
+    }
+
+    // Interface implementation
+    @Override
+    public void loadCargo() {
+        System.out.println("Loading cargo into the truck.");
+    }
+
+    @Override
+    public void unloadCargo() {
+        System.out.println("Unloading cargo from the truck.");
     }
 }

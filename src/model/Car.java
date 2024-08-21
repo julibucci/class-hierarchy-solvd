@@ -1,22 +1,25 @@
 package model;
 
-public class Car extends Vehicle
+import Interfaces.Convertible;
+
+public class Car extends Vehicle implements Convertible
 {
     // Attributes
     protected int doors;
     protected String color;
     private String fuelType;
     private boolean hasSunroof;
-    private double engineCapacity;
+    private boolean isRoofOpen;
+
 
     // Constructor
-    public Car(String brand, String model, int year, int doors, String color, String fuelType, boolean hasSunroof, double engineCapacity) {
+    public Car(String brand, String model, int year, int doors, String color, String fuelType, boolean hasSunroof, boolean isRoofOpen) {
         super(brand, model, year);
         this.doors = doors;
         this.color = color;
         this.fuelType = fuelType;
         this.hasSunroof = hasSunroof;
-        this.engineCapacity = engineCapacity;
+        this.isRoofOpen = false; // By default the roof is close
     }
 
     // Getter y setter
@@ -52,12 +55,12 @@ public class Car extends Vehicle
         this.hasSunroof = hasSunroof;
     }
 
-    public double getEngineCapacity() {
-        return engineCapacity;
+    public boolean isRoofOpen() {
+        return isRoofOpen;
     }
 
-    public void setEngineCapacity(double engineCapacity) {
-        this.engineCapacity = engineCapacity;
+    public void setRoofOpen(boolean roofOpen) {
+        isRoofOpen = roofOpen;
     }
 
     @Override
@@ -82,8 +85,33 @@ public class Car extends Vehicle
                 ", color='" + color + '\'' +
                 ", fuelType='" + fuelType + '\'' +
                 ", hasSunroof=" + hasSunroof +
-                ", engineCapacity=" + engineCapacity +
+                "isRoofOpen=" + isRoofOpen +
                 '}';
+    }
+
+    // Interface implementation
+    @Override
+    public void openRoof() {
+        if (hasSunroof && !isRoofOpen) {
+            System.out.println("Opening the cars roof.");
+            isRoofOpen = true;
+        } else if (isRoofOpen) {
+            System.out.println("The roof is already open.");
+        } else {
+            System.out.println("This car doesn't have a sunroof.");
+        }
+    }
+
+    @Override
+    public void closeRoof() {
+        if (hasSunroof && isRoofOpen) {
+            System.out.println("Closing the cars roof.");
+            isRoofOpen = false;
+        } else if (!isRoofOpen) {
+            System.out.println("The roof is already closed.");
+        } else {
+            System.out.println("This car doesn't have a sunroof.");
+        }
     }
 
 
