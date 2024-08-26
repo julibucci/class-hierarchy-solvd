@@ -1,5 +1,7 @@
 package Classes;
 
+import Exceptions.ExceedingMaxSpeedException;
+import Exceptions.InvalidYearException;
 import Interfaces.Convertible;
 
 public class Car extends Vehicle implements Convertible
@@ -10,16 +12,18 @@ public class Car extends Vehicle implements Convertible
     private String fuelType;
     private boolean hasSunroof;
     private boolean isRoofOpen;
+    private int maxSpeed;
 
 
     // Constructor
-    public Car(String brand, String model, int year, int doors, String color, String fuelType, boolean hasSunroof, boolean isRoofOpen) {
+    public Car(String brand, String model, int year, int doors, String color, String fuelType, boolean hasSunroof, boolean isRoofOpen,int maxSpeed) throws InvalidYearException {
         super(brand, model, year);
         this.doors = doors;
         this.color = color;
         this.fuelType = fuelType;
         this.hasSunroof = hasSunroof;
         this.isRoofOpen = false; // By default the roof is close
+        this.maxSpeed = maxSpeed;
     }
 
     // Getter y setter
@@ -114,5 +118,15 @@ public class Car extends Vehicle implements Convertible
         }
     }
 
+    public void setMaxSpeed(int maxSpeed) {
+        try {
+            if (maxSpeed > 200) {
+                throw new ExceedingMaxSpeedException("Max speed cannot exceed 200 km/h");
+            }
+            this.maxSpeed = maxSpeed;
+        } catch (ExceedingMaxSpeedException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 }

@@ -1,5 +1,6 @@
 package Classes;
 
+import Exceptions.InvalidYearException;
 import Interfaces.Pedalable;
 
 public class Bicycle extends Vehicle implements Pedalable
@@ -10,7 +11,7 @@ public class Bicycle extends Vehicle implements Pedalable
     private boolean hasSuspension;
     private String frameMaterial;
 
-    public Bicycle(String brand, String model, int year, boolean hasGear, int numberOfGears, String type, boolean hasSuspension, String frameMaterial) {
+    public Bicycle(String brand, String model, int year, boolean hasGear, int numberOfGears, String type, boolean hasSuspension, String frameMaterial) throws InvalidYearException {
         super(brand, model, year);
         this.hasGear = hasGear;
         this.numberOfGears = numberOfGears;

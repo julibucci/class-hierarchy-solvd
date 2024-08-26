@@ -1,5 +1,6 @@
 package Classes;
 
+import Exceptions.InvalidYearException;
 import Interfaces.Electric;
 
 public final class ElectricScooter extends Vehicle implements Electric
@@ -10,7 +11,7 @@ public final class ElectricScooter extends Vehicle implements Electric
     private boolean hasLights;
     private boolean hasBluetooth;
 
-    public ElectricScooter(String brand, String model, int year, int batteryLife, int maxSpeed, int range, boolean hasLights, boolean hasBluetooth) {
+    public ElectricScooter(String brand, String model, int year, int batteryLife, int maxSpeed, int range, boolean hasLights, boolean hasBluetooth) throws InvalidYearException {
         super(brand, model, year);
         this.batteryLife = batteryLife;
         this.maxSpeed = maxSpeed;

@@ -1,5 +1,7 @@
 package Classes;
 
+import Exceptions.InvalidYearException;
+import Exceptions.UnsupportedFuelTypeException;
 import Interfaces.Flyable;
 
 public class Airplane extends Vehicle implements Flyable
@@ -10,7 +12,7 @@ public class Airplane extends Vehicle implements Flyable
     private String fuelType;
     private boolean hasWiFi;
 
-    public Airplane(String brand, String model, int year, int altitude, int maxSpeed, int passengerCapacity, String fuelType, boolean hasWiFi) {
+    public Airplane(String brand, String model, int year, int altitude, int maxSpeed, int passengerCapacity, String fuelType, boolean hasWiFi) throws InvalidYearException {
         super(brand, model, year);
         this.altitude = altitude;
         this.maxSpeed = maxSpeed;
@@ -47,10 +49,6 @@ public class Airplane extends Vehicle implements Flyable
         return fuelType;
     }
 
-    public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
-    }
-
     public boolean isHasWiFi() {
         return hasWiFi;
     }
@@ -81,6 +79,14 @@ public class Airplane extends Vehicle implements Flyable
     public void takeOff() {
         System.out.println("The airplane is taking off.");
         this.altitude = 10000;
+    }
+
+    // Exception
+    public void setFuelType(String fuelType) throws UnsupportedFuelTypeException {
+        if (!fuelType.equalsIgnoreCase("Jet Fuel") && !fuelType.equalsIgnoreCase("Aviation Gasoline")) {
+            throw new UnsupportedFuelTypeException("Unsupported fuel type: " + fuelType);
+        }
+        this.fuelType = fuelType;
     }
 
 }

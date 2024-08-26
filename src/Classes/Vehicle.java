@@ -1,5 +1,7 @@
 package Classes;
 
+import Exceptions.InvalidYearException;
+
 import java.util.Objects;
 
 public abstract class Vehicle
@@ -17,12 +19,15 @@ public abstract class Vehicle
         vehicleCount = 0; // Initialize static variable
     }
 
-    // Constructor
-    public Vehicle(String brand, String model, int year) {
+    // Constructor with exception
+    public Vehicle(String brand, String model, int year) throws InvalidYearException {
         this.brand = brand;
         this.model = model;
+        if (year > MAX_YEAR) {
+            throw new InvalidYearException("Year cannot exceed " + MAX_YEAR);
+        }
         this.year = year;
-        vehicleCount++; // Increment vehicle count for each new instance
+        vehicleCount++;
     }
 
     // Getter y setter

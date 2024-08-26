@@ -1,5 +1,7 @@
 package Classes;
 
+import Exceptions.InvalidYearException;
+
 import java.util.Objects;
 
 public class Helicopter extends Vehicle
@@ -10,7 +12,7 @@ public class Helicopter extends Vehicle
     private String fuelType;
     private boolean hasAutopilot;
 
-    public Helicopter(String brand, String model, int year, int rotorSpeed, int passengerCapacity, int maxAltitude, String fuelType, boolean hasAutopilot) {
+    public Helicopter(String brand, String model, int year, int rotorSpeed, int passengerCapacity, int maxAltitude, String fuelType, boolean hasAutopilot) throws InvalidYearException {
         super(brand, model, year);
         this.rotorSpeed = rotorSpeed;
         this.passengerCapacity = passengerCapacity;

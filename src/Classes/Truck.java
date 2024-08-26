@@ -1,5 +1,6 @@
 package Classes;
 
+import Exceptions.InvalidYearException;
 import Interfaces.Transportable;
 
 public class Truck extends Vehicle implements Transportable {
@@ -11,7 +12,7 @@ public class Truck extends Vehicle implements Transportable {
     private int cabinSize;
 
     // Constructor
-    public Truck(String brand, String model, int year, int loadCapacity, int numberOfAxles, boolean hasTrailer, String fuelType, int cabinSize) {
+    public Truck(String brand, String model, int year, int loadCapacity, int numberOfAxles, boolean hasTrailer, String fuelType, int cabinSize) throws InvalidYearException {
         super(brand, model, year);
         this.loadCapacity = loadCapacity;
         this.numberOfAxles = numberOfAxles;

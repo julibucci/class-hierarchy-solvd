@@ -1,5 +1,7 @@
 package Classes;
 
+import Exceptions.InvalidYearException;
+
 import java.util.Objects;
 
 public class Motorcycle extends Vehicle
@@ -12,7 +14,7 @@ public class Motorcycle extends Vehicle
     private boolean hasABS;
 
 
-    public Motorcycle(String brand, String model, int year, int engineCapacity, String type, boolean hasWindshield, String color, boolean hasABS) {
+    public Motorcycle(String brand, String model, int year, int engineCapacity, String type, boolean hasWindshield, String color, boolean hasABS) throws InvalidYearException {
         super(brand, model, year);
         this.engineCapacity = engineCapacity;
         this.type = type;

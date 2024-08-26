@@ -1,5 +1,8 @@
 package Classes;
 
+import Exceptions.InvalidYearException;
+import Exceptions.NegativeAttributeException;
+
 public class Boat extends Vehicle
 {
     private int maxSpeed;
@@ -8,7 +11,7 @@ public class Boat extends Vehicle
     private String fuelType;
     private boolean hasNavigationSystem;
 
-    public Boat(String brand, String model, int year, int maxSpeed, int length, int passengerCapacity, String fuelType, boolean hasNavigationSystem) {
+    public Boat(String brand, String model, int year, int maxSpeed, int length, int passengerCapacity, String fuelType, boolean hasNavigationSystem) throws InvalidYearException {
         super(brand, model, year);
         this.maxSpeed = maxSpeed;
         this.length = length;
@@ -27,10 +30,6 @@ public class Boat extends Vehicle
 
     public int getLength() {
         return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
     }
 
     public int getPassengerCapacity() {
@@ -60,5 +59,13 @@ public class Boat extends Vehicle
     @Override
     public void start() {
         System.out.println("The boat is starting.");
+    }
+
+    // Exception
+    public void setLength(int length) throws NegativeAttributeException {
+        if (length < 0) {
+            throw new NegativeAttributeException("Length cannot be negative: " + length);
+        }
+        this.length = length;
     }
 }

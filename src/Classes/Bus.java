@@ -1,5 +1,8 @@
 package Classes;
 
+import Exceptions.ExceedingPassengerCapacityException;
+import Exceptions.InvalidYearException;
+
 public class Bus extends Vehicle
 {
     private int seatingCapacity;
@@ -8,7 +11,7 @@ public class Bus extends Vehicle
     private int length; // in meters
     private String fuelType; // e.g., Diesel, CNG, Electric
 
-    public Bus(String brand, String model, int year, int seatingCapacity, int numberOfDoors, boolean hasAirConditioning, int length, String fuelType) {
+    public Bus(String brand, String model, int year, int seatingCapacity, int numberOfDoors, boolean hasAirConditioning, int length, String fuelType) throws InvalidYearException {
         super(brand, model, year);
         this.seatingCapacity = seatingCapacity;
         this.numberOfDoors = numberOfDoors;
@@ -19,10 +22,6 @@ public class Bus extends Vehicle
 
     public int getSeatingCapacity() {
         return seatingCapacity;
-    }
-
-    public void setSeatingCapacity(int seatingCapacity) {
-        this.seatingCapacity = seatingCapacity;
     }
 
     public int getNumberOfDoors() {
@@ -60,5 +59,14 @@ public class Bus extends Vehicle
     @Override
     public void start() {
         System.out.println("The bus is starting.");
+    }
+
+    // Exception
+    public void setSeatingCapacity(int seatingCapacity) throws ExceedingPassengerCapacityException {
+        if (seatingCapacity > 50) // we assume that the limit is 50
+        {
+            throw new ExceedingPassengerCapacityException("Seating capacity exceeds the allowed limit of 50.");
+        }
+        this.seatingCapacity = seatingCapacity;
     }
 }
