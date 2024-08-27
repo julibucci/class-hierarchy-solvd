@@ -38,11 +38,11 @@ public class Main {
             ((Bus) bus).getRoutes().add("Route 2");
 
             // Uso de CustomLinkedList en lugar de LinkedList de Java
-            CustomLinkedList<String> helicopterMaintenanceTasks = new CustomLinkedList<>();
+            LinkedList<String> helicopterMaintenanceTasks = new LinkedList<>();
             helicopterMaintenanceTasks.add("Check rotor blades");
             helicopterMaintenanceTasks.add("Change oil");
 
-            helicopter = new Helicopter("Bell", "407", 2019, 1000, 6, 15000, "Aviation Gasoline", false, (Queue<String>) helicopterMaintenanceTasks);
+            helicopter = new Helicopter("Bell", "407", 2019, 1000, 6, 15000, "Aviation Gasoline", false, helicopterMaintenanceTasks);
 
             HashMap<String, Integer> initialCargo = new HashMap<>();
             initialCargo.put("Electronics", 500);
