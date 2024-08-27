@@ -2,7 +2,9 @@ package Classes;
 
 import Exceptions.InvalidYearException;
 
+import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Queue;
 
 public class Helicopter extends Vehicle
 {
@@ -11,14 +13,16 @@ public class Helicopter extends Vehicle
     private int maxAltitude;
     private String fuelType;
     private boolean hasAutopilot;
+    private Queue<String> maintenanceTasks;
 
-    public Helicopter(String brand, String model, int year, int rotorSpeed, int passengerCapacity, int maxAltitude, String fuelType, boolean hasAutopilot) throws InvalidYearException {
+    public Helicopter(String brand, String model, int year, int rotorSpeed, int passengerCapacity, int maxAltitude, String fuelType, boolean hasAutopilot,Queue<String> maintenanceTasks) throws InvalidYearException {
         super(brand, model, year);
         this.rotorSpeed = rotorSpeed;
         this.passengerCapacity = passengerCapacity;
         this.maxAltitude = maxAltitude;
         this.fuelType = fuelType;
         this.hasAutopilot = hasAutopilot;
+        this.maintenanceTasks = new LinkedList<>();
     }
 
     public int getRotorSpeed() {
@@ -61,6 +65,14 @@ public class Helicopter extends Vehicle
         this.hasAutopilot = hasAutopilot;
     }
 
+    public Queue<String> getMaintenanceTasks() {
+        return maintenanceTasks;
+    }
+
+    public void setMaintenanceTasks(Queue<String> maintenanceTasks) {
+        this.maintenanceTasks = maintenanceTasks;
+    }
+
     @Override
     public void start() {
         System.out.println("The helicopter is starting.");
@@ -69,14 +81,20 @@ public class Helicopter extends Vehicle
     // toString method
     @Override
     public String toString() {
-        return super.toString() + " Helicopter [rotorSpeed=" + rotorSpeed + ", passengerCapacity=" + passengerCapacity +
-                ", maxAltitude=" + maxAltitude + ", fuelType=" + fuelType + ", hasAutopilot=" + hasAutopilot + "]";
+        return super.toString() + "Helicopter{" +
+                "rotorSpeed=" + rotorSpeed +
+                ", passengerCapacity=" + passengerCapacity +
+                ", maxAltitude=" + maxAltitude +
+                ", fuelType='" + fuelType + '\'' +
+                ", hasAutopilot=" + hasAutopilot +
+                ", maintenanceTasks=" + maintenanceTasks +
+                '}';
     }
 
     // hashCode method
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), rotorSpeed, passengerCapacity, maxAltitude, fuelType, hasAutopilot);
+        return Objects.hash(super.hashCode(), rotorSpeed, passengerCapacity, maxAltitude, fuelType, hasAutopilot, maintenanceTasks);
     }
 
     // equals method
@@ -89,6 +107,16 @@ public class Helicopter extends Vehicle
                 passengerCapacity == helicopter.passengerCapacity &&
                 maxAltitude == helicopter.maxAltitude &&
                 hasAutopilot == helicopter.hasAutopilot &&
-                Objects.equals(fuelType, helicopter.fuelType);
+                Objects.equals(fuelType, helicopter.fuelType) &&
+                Objects.equals(maintenanceTasks, helicopter.maintenanceTasks);
+    }
+
+// Collection methods
+    public void addMaintenanceTask(String task) {
+        maintenanceTasks.add(task);
+    }
+
+    public String performMaintenanceTask() {
+        return maintenanceTasks.poll();
     }
 }

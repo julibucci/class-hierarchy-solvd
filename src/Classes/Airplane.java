@@ -4,21 +4,21 @@ import Exceptions.InvalidYearException;
 import Exceptions.UnsupportedFuelTypeException;
 import Interfaces.Flyable;
 
+import java.util.HashSet;
+
 public class Airplane extends Vehicle implements Flyable
 {
     private int altitude;
-    private int maxSpeed;
     private int passengerCapacity;
     private String fuelType;
-    private boolean hasWiFi;
+    private HashSet<String> passengers;
 
-    public Airplane(String brand, String model, int year, int altitude, int maxSpeed, int passengerCapacity, String fuelType, boolean hasWiFi) throws InvalidYearException {
+    public Airplane(String brand, String model, int year, int altitude, int passengerCapacity, String fuelType, HashSet<String> passengers) throws InvalidYearException {
         super(brand, model, year);
         this.altitude = altitude;
-        this.maxSpeed = maxSpeed;
         this.passengerCapacity = passengerCapacity;
         this.fuelType = fuelType;
-        this.hasWiFi = hasWiFi;
+        this.passengers = new HashSet<>();
     }
 
     public int getAltitude() {
@@ -27,14 +27,6 @@ public class Airplane extends Vehicle implements Flyable
 
     public void setAltitude(int altitude) {
         this.altitude = altitude;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
     }
 
     public int getPassengerCapacity() {
@@ -49,12 +41,12 @@ public class Airplane extends Vehicle implements Flyable
         return fuelType;
     }
 
-    public boolean isHasWiFi() {
-        return hasWiFi;
+    public HashSet<String> getPassengers() {
+        return passengers;
     }
 
-    public void setHasWiFi(boolean hasWiFi) {
-        this.hasWiFi = hasWiFi;
+    public void setPassengers(HashSet<String> passengers) {
+        this.passengers = passengers;
     }
 
     @Override
@@ -67,10 +59,9 @@ public class Airplane extends Vehicle implements Flyable
     public String toString() {
         return super.toString() + "Airplane{" +
                 "altitude=" + altitude +
-                ", maxSpeed=" + maxSpeed +
                 ", passengerCapacity=" + passengerCapacity +
                 ", fuelType='" + fuelType + '\'' +
-                ", hasWiFi=" + hasWiFi +
+                ", passengers=" + passengers +
                 '}';
     }
 
@@ -89,4 +80,12 @@ public class Airplane extends Vehicle implements Flyable
         this.fuelType = fuelType;
     }
 
+    // Collection
+    public void addPassenger(String passenger) {
+        passengers.add(passenger);
+    }
+
+    public void removePassenger(String passenger) {
+        passengers.remove(passenger);
+    }
 }

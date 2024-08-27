@@ -3,6 +3,8 @@ package Classes;
 import Exceptions.InvalidYearException;
 import Interfaces.Transportable;
 
+import java.util.HashMap;
+
 public class Truck extends Vehicle implements Transportable {
     // Attributes
     private int loadCapacity;
@@ -10,15 +12,17 @@ public class Truck extends Vehicle implements Transportable {
     private boolean hasTrailer;
     private String fuelType;
     private int cabinSize;
+    private HashMap<String, Integer> cargo;
 
     // Constructor
-    public Truck(String brand, String model, int year, int loadCapacity, int numberOfAxles, boolean hasTrailer, String fuelType, int cabinSize) throws InvalidYearException {
+    public Truck(String brand, String model, int year, int loadCapacity, int numberOfAxles, boolean hasTrailer, String fuelType, int cabinSize,HashMap<String, Integer> cargo) throws InvalidYearException {
         super(brand, model, year);
         this.loadCapacity = loadCapacity;
         this.numberOfAxles = numberOfAxles;
         this.hasTrailer = hasTrailer;
         this.fuelType = fuelType;
         this.cabinSize = cabinSize;
+        this.cargo = new HashMap<>();
     }
 
     // Getter y setter
@@ -62,6 +66,14 @@ public class Truck extends Vehicle implements Transportable {
         this.cabinSize = cabinSize;
     }
 
+    public HashMap<String, Integer> getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(HashMap<String, Integer> cargo) {
+        this.cargo = cargo;
+    }
+
     @Override
     public void start() {
         System.out.println("The truck is starting.");
@@ -76,5 +88,14 @@ public class Truck extends Vehicle implements Transportable {
     @Override
     public void unloadCargo() {
         System.out.println("Unloading cargo from the truck.");
+    }
+
+    // Collections methods
+    public void addCargo(String type, int quantity) {
+        cargo.put(type, quantity);
+    }
+
+    public void removeCargo(String type) {
+        cargo.remove(type);
     }
 }

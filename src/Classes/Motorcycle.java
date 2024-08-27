@@ -2,6 +2,7 @@ package Classes;
 
 import Exceptions.InvalidYearException;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Motorcycle extends Vehicle
@@ -12,15 +13,17 @@ public class Motorcycle extends Vehicle
     private boolean hasWindshield;
     private String color;
     private boolean hasABS;
+    private ArrayList<String> accessories;
 
 
-    public Motorcycle(String brand, String model, int year, int engineCapacity, String type, boolean hasWindshield, String color, boolean hasABS) throws InvalidYearException {
+    public Motorcycle(String brand, String model, int year, int engineCapacity, String type, boolean hasWindshield, String color, boolean hasABS, ArrayList<String> accessories) throws InvalidYearException {
         super(brand, model, year);
         this.engineCapacity = engineCapacity;
         this.type = type;
         this.hasWindshield = hasWindshield;
         this.color = color;
         this.hasABS = hasABS;
+        this.accessories = new ArrayList<>();
     }
 
     public int getEngineCapacity() {
@@ -63,6 +66,14 @@ public class Motorcycle extends Vehicle
         this.hasABS = hasABS;
     }
 
+    public ArrayList<String> getAccessories() {
+        return accessories;
+    }
+
+    public void setAccessories(ArrayList<String> accessories) {
+        this.accessories = accessories;
+    }
+
     @Override
     public void start() {
         System.out.println("The motorcycle is starting.");
@@ -71,14 +82,20 @@ public class Motorcycle extends Vehicle
     // method toString
     @Override
     public String toString() {
-        return super.toString() + " Motorcycle [engineCapacity=" + engineCapacity + ", type=" + type +
-                ", hasWindshield=" + hasWindshield + ", color=" + color + ", hasABS=" + hasABS + "]";
+        return super.toString() + "Motorcycle{" +
+                "engineCapacity=" + engineCapacity +
+                ", type='" + type + '\'' +
+                ", hasWindshield=" + hasWindshield +
+                ", color='" + color + '\'' +
+                ", hasABS=" + hasABS +
+                ", accessories=" + accessories +
+                '}';
     }
 
     // hashCode method
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), engineCapacity, type, color, hasABS);
+        return Objects.hash(super.hashCode(), engineCapacity, type, hasWindshield, color, hasABS, accessories);
     }
 
     // equals method
@@ -93,11 +110,21 @@ public class Motorcycle extends Vehicle
         // Realiza el casteo seguro a la clase Motorcycle
         Motorcycle motorcycle = (Motorcycle) obj;
 
-        // Compara los atributos especificos de Motorcycle
+        // Compara los atributos específicos de Motorcycle
         return engineCapacity == motorcycle.engineCapacity &&
                 hasWindshield == motorcycle.hasWindshield &&
                 hasABS == motorcycle.hasABS &&
                 Objects.equals(type, motorcycle.type) &&
-                Objects.equals(color, motorcycle.color);
+                Objects.equals(color, motorcycle.color) &&
+                Objects.equals(accessories, motorcycle.accessories);  // Comparar listas de accesorios
+    }
+
+// Collection methods
+    public void addAccessory(String accessory) {
+        accessories.add(accessory);
+    }
+
+    public void removeAccessory(String accessory) {
+        accessories.remove(accessory);
     }
 }

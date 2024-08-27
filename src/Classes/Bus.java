@@ -3,21 +3,21 @@ package Classes;
 import Exceptions.ExceedingPassengerCapacityException;
 import Exceptions.InvalidYearException;
 
+import java.util.ArrayList;
+
 public class Bus extends Vehicle
 {
     private int seatingCapacity;
     private int numberOfDoors;
-    private boolean hasAirConditioning;
-    private int length; // in meters
-    private String fuelType; // e.g., Diesel, CNG, Electric
+    private String fuelType;
+    private ArrayList<String> routes;
 
-    public Bus(String brand, String model, int year, int seatingCapacity, int numberOfDoors, boolean hasAirConditioning, int length, String fuelType) throws InvalidYearException {
+    public Bus(String brand, String model, int year, int seatingCapacity, int numberOfDoors, String fuelType, ArrayList<String> routes) throws InvalidYearException {
         super(brand, model, year);
         this.seatingCapacity = seatingCapacity;
         this.numberOfDoors = numberOfDoors;
-        this.hasAirConditioning = hasAirConditioning;
-        this.length = length;
         this.fuelType = fuelType;
+        this.routes = new ArrayList<>();
     }
 
     public int getSeatingCapacity() {
@@ -32,28 +32,20 @@ public class Bus extends Vehicle
         this.numberOfDoors = numberOfDoors;
     }
 
-    public boolean isHasAirConditioning() {
-        return hasAirConditioning;
-    }
-
-    public void setHasAirConditioning(boolean hasAirConditioning) {
-        this.hasAirConditioning = hasAirConditioning;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
     public String getFuelType() {
         return fuelType;
     }
 
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
+    }
+
+    public ArrayList<String> getRoutes() {
+        return routes;
+    }
+
+    public void setRoutes(ArrayList<String> routes) {
+        this.routes = routes;
     }
 
     @Override
