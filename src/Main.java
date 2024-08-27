@@ -12,8 +12,8 @@ import java.util.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static Logger logger;
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         // Configuracion del logger
         File log4j2File = new File("C:\\Users\\julie\\OneDrive\\Escritorio\\Exercises - Solvd\\class hierarchy- solvd\\src\\resources\\log4j2.properties");
         System.setProperty("log4j2.configurationFile", log4j2File.toURI().toString());
@@ -28,16 +28,16 @@ public class Main {
         VehicleFileManager fileManager = new VehicleFileManager();
 
         try {
-            airplane = new Airplane("Boeing", "747", 2022, 35000, 900, "Jet Fuel", new HashSet<>());
-            ((Airplane) airplane).addPassenger("John Doe");
-            ((Airplane) airplane).addPassenger("Jane Smith");
+            CustomLinkedList<String> airplanePassengers = new CustomLinkedList<>();
+            airplanePassengers.add("John Doe");
+            airplanePassengers.add("Jane Smith");
+            airplane = new Airplane("Boeing", "747", 2022, 35000, 900, "Jet Fuel", airplanePassengers);
 
-            bus = new Bus("Volvo", "B11R", 2021, 50, 2, "Diesel", new ArrayList<>());
-            ((Bus) bus).setSeatingCapacity(45);
-            ((Bus) bus).getRoutes().add("Route 1");
-            ((Bus) bus).getRoutes().add("Route 2");
+            CustomLinkedList<String> busRoutes = new CustomLinkedList<>();
+            busRoutes.add("Route 1");
+            busRoutes.add("Route 2");
+            bus = new Bus("Volvo", "B11R", 2021, 50, 2, "Diesel", busRoutes);
 
-            // Uso de CustomLinkedList en lugar de LinkedList de Java
             LinkedList<String> helicopterMaintenanceTasks = new LinkedList<>();
             helicopterMaintenanceTasks.add("Check rotor blades");
             helicopterMaintenanceTasks.add("Change oil");
@@ -68,7 +68,7 @@ public class Main {
             fileManager.loadVehicleDetails("truck_details.txt");
             fileManager.loadVehicleDetails("motorcycle_details.txt");
 
-        } catch (InvalidYearException | ExceedingPassengerCapacityException e) {
+        } catch (InvalidYearException e) {
             logger.error("An error occurred while creating a vehicle: " + e.getMessage(), e);
         } catch (RuntimeException e) {
             logger.warn("A runtime error occurred: " + e.getMessage(), e);

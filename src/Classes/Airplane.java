@@ -13,7 +13,7 @@ public class Airplane extends Vehicle implements Flyable
     private String fuelType;
     private HashSet<String> passengers;
 
-    public Airplane(String brand, String model, int year, int altitude, int passengerCapacity, String fuelType, HashSet<String> passengers) throws InvalidYearException {
+    public Airplane(String brand, String model, int year, int altitude, int passengerCapacity, String fuelType, CustomLinkedList<String> passengers) throws InvalidYearException {
         super(brand, model, year);
         this.altitude = altitude;
         this.passengerCapacity = passengerCapacity;
