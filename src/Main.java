@@ -6,10 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -17,7 +14,7 @@ public class Main {
     public static Logger logger;
     public static void main(String[] args) {
 
-        // Configuración del logger
+        // Configuracion del logger
         File log4j2File = new File("C:\\Users\\julie\\OneDrive\\Escritorio\\Exercises - Solvd\\class hierarchy- solvd\\src\\resources\\log4j2.properties");
         System.setProperty("log4j2.configurationFile", log4j2File.toURI().toString());
         logger = LogManager.getLogger(Main.class);
@@ -40,9 +37,12 @@ public class Main {
             ((Bus) bus).getRoutes().add("Route 1");
             ((Bus) bus).getRoutes().add("Route 2");
 
-            helicopter = new Helicopter("Bell", "407", 2019, 1000, 6, 15000, "Aviation Gasoline", false, new LinkedList<>());
-            ((Helicopter) helicopter).addMaintenanceTask("Check rotor blades");
-            ((Helicopter) helicopter).addMaintenanceTask("Change oil");
+            // Uso de CustomLinkedList en lugar de LinkedList de Java
+            CustomLinkedList<String> helicopterMaintenanceTasks = new CustomLinkedList<>();
+            helicopterMaintenanceTasks.add("Check rotor blades");
+            helicopterMaintenanceTasks.add("Change oil");
+
+            helicopter = new Helicopter("Bell", "407", 2019, 1000, 6, 15000, "Aviation Gasoline", false, (Queue<String>) helicopterMaintenanceTasks);
 
             HashMap<String, Integer> initialCargo = new HashMap<>();
             initialCargo.put("Electronics", 500);
